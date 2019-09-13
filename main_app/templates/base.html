@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,43 +21,28 @@
             <i class="fa fa-universal-access nav-icon" aria-hidden="true"></i>
             <li><a href="/" class="left brand-logo">&nbsp;&nbsp;bandtogether</a></li>
         </ul>
-        <!-- <div class="left brand-container">
-            <i class="fa fa-universal-access nav-icon" aria-hidden="true"></i>
-            <h1 class="brand">bandtogether</h1>
-        </div> -->
-        <!-- <div class="nav-search">
-            <div class="search-img"><i class="fa fa-search" aria-hidden="true"></i></div>
-            <input type="text" id="site-search" placeholder="Search for Bands"></input>   
-        </div> -->
         <div class="nav-login">
-            <!-- <button type="submit" id="login-sign-up" class="btn-logsign">Signup\Login</button> -->
             <ul class="right">
-                    <li><a href="{% url 'about' %}">Mission</a></li>
-                    {% if user.is_authenticated %}
-                      <li><a href="{% url 'bands_create' %}">Add an Event</a></li>
-                      <li><a href="{% url 'index' %}">View Events</a></li>
-                      <li><a href="{% url 'logout' %}">Log Out</a></li>
-                    {% else %}
-                      <li><a href="{% url 'signup' %}">Sign Up</a></li>
-                      <li><a href="{% url 'login' %}">Log In</a></li>
-                    {% endif %}
-                  </ul>
+                <li><a href="#">Mission</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="#">Add an Event</a></li>
+                    <li><a href="#">View Events</a></li>
+                    <li><a href="#">Log Out</a></li>
+                {% else %}
+                    <li><a href="#">Sign Up</a></li>
+                    <li><a href="#">Log In</a></li>
+                {% endif %}
+            </ul>
         </div>
     </div>
     </header>
-
-
     <main class="container main">
-            {% block content %}
-            {% endblock %}
+        {% block content %}
+        {% endblock %}
     </main>
     <footer class="page-footer">
         <div class="right">All Rights Reserved, &copy; 2019 bandtogether &nbsp;</div>
     </footer>
-
-
-
-
 <script src="js/main.js"></script>
 </body>
 </html>
