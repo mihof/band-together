@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 from datetime import date
 # Create your models here.
 
@@ -16,7 +16,6 @@ class Venue(models.Model):
     choices=OPTIONS,
     default=OPTIONS[0][0]
   )
-  user = models.ForeignKey(User, on_delete=models.CASCADE)
 
   def __str__(self):
     return self.name
@@ -29,3 +28,8 @@ class Event(models.Model):
 
   def __str__(self):
     return self.artists
+
+class CustomUser(AbstractUser):
+  is_customer = models.BooleanField('customer status', default=True)
+  is_manager = models.BooleanField('manager status', default=False)
+  
