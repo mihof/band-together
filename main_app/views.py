@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.views.generic import ListView, DetailView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
@@ -7,6 +8,9 @@ from .models import Venue, Event
 
 def home(request):
   return render(request, 'home.html')
+
+class EventList(ListView):
+  model = Event
 
 def signup(request):
   error_message = ''

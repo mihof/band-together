@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>All Events</h1>
+
+{% for event in events %}
+  <div class="card">
+      <div class="card-content">
+        <p>event: {% event.name %}</p>
+
+      </div>
+
+  </div>
+{% endfor %}
+
+{% endblock %}
