@@ -16,9 +16,9 @@
 </head>
 <body>
     <header class="navbar-fixed">
-    <div class="nav-wrapper nav">
+    <nav class="nav-wrapper nav">
         <ul class="left brand-container">
-            <i class="fa fa-universal-access nav-icon" aria-hidden="true"></i>
+            <li><i class="fa fa-universal-access nav-icon" aria-hidden="true"></i></li>
             <li><a href="/" class="left brand-logo">&nbsp;&nbsp;bandtogether</a></li>
         </ul>
         <div class="nav-login">
@@ -27,10 +27,10 @@
                 {% if user.is_authenticated %}
                     <li><a href="#">Add an Event</a></li>
                     <li><a href="#">View Events</a></li>
-                    <li><a href="#">Log Out</a></li>
+                    <li><a href="{% url 'logout' %}">Log Out</a></li>
                 {% else %}
-                    <li><a href="#">Sign Up</a></li>
-                    <li><a href="#">Log In</a></li>
+                    <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                    <li><a href="{% url 'login' %}">Log In</a></li>
                 {% endif %}
             </ul>
         </div>
