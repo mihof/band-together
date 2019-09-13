@@ -30,6 +30,13 @@ class Event(models.Model):
     return self.artists
 
 class CustomUser(AbstractUser):
-  is_customer = models.BooleanField('customer status', default=True)
+  is_customer = models.BooleanField('customer status', default=False)
   is_manager = models.BooleanField('manager status', default=False)
+
+class Manager(models.Model):
+  user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, primary_key=True)
+
+class Customer(models.Model):
+  user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, primary_key=True)
+
   
