@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>All Events</h1>
+
+{% for event in event_list %}
+  <div class="card">
+      <div class="card-content">
+        <span class="card-title">{{ event.artist }}</span>
+        <h2>Genre: {{ event.genre }}</h2>
+        <h2>Description: {{ event.description }}</h2>
+        <h2>Date: {{ event.date }}</h2>
+      </div>
+  </div>
+{% endfor %}
+
+
+
+{% endblock %}
