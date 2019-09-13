@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Band Together</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<body>
+    <header class="navbar-fixed">
+    <div class="nav-wrapper nav">
+        <ul class="left brand-container">
+            <i class="fa fa-universal-access nav-icon" aria-hidden="true"></i>
+            <li><a href="/" class="left brand-logo">&nbsp;&nbsp;bandtogether</a></li>
+        </ul>
+        <!-- <div class="left brand-container">
+            <i class="fa fa-universal-access nav-icon" aria-hidden="true"></i>
+            <h1 class="brand">bandtogether</h1>
+        </div> -->
+        <!-- <div class="nav-search">
+            <div class="search-img"><i class="fa fa-search" aria-hidden="true"></i></div>
+            <input type="text" id="site-search" placeholder="Search for Bands"></input>   
+        </div> -->
+        <div class="nav-login">
+            <!-- <button type="submit" id="login-sign-up" class="btn-logsign">Signup\Login</button> -->
+            <ul class="right">
+                    <li><a href="{% url 'about' %}">Mission</a></li>
+                    {% if user.is_authenticated %}
+                      <li><a href="{% url 'bands_create' %}">Add an Event</a></li>
+                      <li><a href="{% url 'index' %}">View Events</a></li>
+                      <li><a href="{% url 'logout' %}">Log Out</a></li>
+                    {% else %}
+                      <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                      <li><a href="{% url 'login' %}">Log In</a></li>
+                    {% endif %}
+                  </ul>
+        </div>
+    </div>
+    </header>
+
+
+    <main class="container main">
+            {% block content %}
+            {% endblock %}
+    </main>
+    <footer class="page-footer">
+        <div class="right">All Rights Reserved, &copy; 2019 bandtogether &nbsp;</div>
+    </footer>
+
+
+
+
+<script src="js/main.js"></script>
+</body>
+</html>
