@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'user.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -124,7 +125,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
 LOGIN_REDIRECT_URL = '/'
 
 LOGOUT_REDIRECT_URL = '/'
 
+AUTH_USER_MODEL = 'users.CustomUser'
