@@ -5,10 +5,11 @@
 {% for event in events %}
   <div class="card">
     <div class="card-content">
-      <span class="card-title">{{ event.artist }}</span>
+      <span class="card-title">{{ event.artists }}</span>
       <p>Genre: {{ event.genre }}</p>
       <p>Description: {{ event.description }}</p>
       <p>Date: {{ event.date }}</p>
+      <p>Venue: {{ event.venue.name }}</p>
     </div>
   </div>
 {% endfor %}
