@@ -40,3 +40,11 @@ def event_detail(request, event_id):
 class EventCreate(CreateView):
   model = Event
   fields = '__all__'
+
+class EventUpdate(UpdateView):
+  model = Event
+  fields = ['artists', 'description', 'date']
+
+class EventDelete(DeleteView):
+  model= Event
+  success_url = '/events/'
