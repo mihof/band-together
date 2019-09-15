@@ -22,6 +22,8 @@ class Venue(models.Model):
     default=OPTIONS[0][0]
   )
 
+  user = models.OneToOneField(User, on_delete=models.CASCADE)
+  
   def __str__(self):
     return self.name
 
@@ -38,5 +40,10 @@ class Event(models.Model):
 
 class Profile(models.Model):
   user = models.OneToOneField(User, on_delete=models.CASCADE)
+  user_role = models.CharField(
+    max_length=1,
+    choices=ROLES,
+    default=ROLES[0][0]
+  )
   favorite_color = models.CharField(max_length=50)
 
