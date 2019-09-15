@@ -2,20 +2,79 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background-color: red;
+  background-image: url('https://i.imgur.com/z8Ln37T.png');
+  background-size: cover;
 }
 
 /* Nav Section */
+nav {
+    /* background-color: rgb(36, 216, 177); */
+    /* background-color: teal accent-3; */
+}
+
 .nav-icon {
-    font-size: 50px;
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    left: 2%;
+    transform: translateY(-25%);
+}
+
+.fa-bars {
+    font-size: 30px;
+}
+
+.brand-logo.left {
+ left: 5% !important;
+
+}
+
+nav ul a {
+    font-size: 20px;
 }
   
 main {
   flex: 1 0 auto;
-  background-image: url('https://imgur.com/a/nXhlKA5');
 }
 
-footer {
+.events-header {
+    font-size: 36px;
+    color: #fff;
+    text-shadow:
+		-1px -1px 0 #00695c,
+		1px -1px 0 #00695c,
+		-1px 1px 0 #00695c,
+		1px 1px 0 #00695c;
+}
+
+.card-content {
+    color: #00695c;
+}
+
+/* Footer steez */
+/* footer {
   padding-top: 0;
   text-align: right;
+} */
+
+.page-footer  {
+    padding-top: 15px;
+    padding-bottom: 15px; 
+    text-align: center !important;
+}
+
+/* Media Queries */
+
+/* 992px width and down */
+@media only screen and (max-width: 992px) {
+.brand-logo.left {
+ /* left: 5% !important; */
+    }
+}
+
+/* 992px width and down */
+@media only screen and (max-width: 480px) {
+.brand-logo.left {
+    left: 7% !important;
+    }
 }
