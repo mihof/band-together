@@ -22,7 +22,7 @@ class Venue(models.Model):
     default=OPTIONS[0][0]
   )
 
-  # user = models.ForeignKey(User, on_delete=models.CASCADE)
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
 
   def __str__(self):
     return self.name
