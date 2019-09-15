@@ -9,8 +9,8 @@ OPTIONS = (
 )
 
 ROLES = (
-  ('C', 'Customers'),
-  ('M', 'Managers')
+  ('C', 'Customer'),
+  ('M', 'Manager')
 )
 
 class Venue(models.Model):
@@ -21,6 +21,8 @@ class Venue(models.Model):
     choices=OPTIONS,
     default=OPTIONS[0][0]
   )
+
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
 
   def __str__(self):
     return self.name
@@ -38,5 +40,10 @@ class Event(models.Model):
 
 class Profile(models.Model):
   user = models.OneToOneField(User, on_delete=models.CASCADE)
+  user_role = models.CharField(
+    max_length=1,
+    choices=ROLES,
+    default=ROLES[0][0]
+  )
   favorite_color = models.CharField(max_length=50)
 
