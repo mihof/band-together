@@ -9,8 +9,8 @@ from .models import Venue, Event
 def home(request):
   return render(request, 'home.html')
 
-class EventList(ListView):
-  model = Event
+# class EventList(ListView):
+#   model = Event
 
 def signup(request):
   error_message = ''
@@ -31,4 +31,7 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
-# Create your views here.
+def event_index(request):
+  events = Event.objects.all()
+  return render(request, 'events/index.html', { 'events': events })
+
