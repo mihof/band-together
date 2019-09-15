@@ -9,6 +9,10 @@
       <p>Capcity: {{ venue.capacity }}</p>
       <p>Accessibility: {{ venue.accessibility }}</p>
     </div>
+    <div class="card-action">
+      <a href="{% url 'venue_update' venue.id %}">Edit</a>
+      <a href="{% url 'venue_delete' venue.id %}">Delete</a>
+    </div>
   </div>
 {% endfor %}
 

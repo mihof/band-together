@@ -11,7 +11,7 @@ urlpatterns = [
   path('events/<int:pk>/delete/', views.EventDelete.as_view(), name='delete'),
   path('venues/', views.VenueList.as_view(), name='venue_index'),
   path('venues/create/', views.VenueCreate.as_view(), name='venue_create'),
-  # path('events/<int:pk>/update/', views.EventUpdate.as_view(), name='update'),
-  # path('events/<int:pk>/delete/', views.EventDelete.as_view(), name='delete'),
+  path('venues/<int:pk>/update/', views.VenueUpdate.as_view(), name='venue_update'),
+  path('venues/<int:pk>/delete/', views.VenueDelete.as_view(), name='venue_delete'),
   
 ]
