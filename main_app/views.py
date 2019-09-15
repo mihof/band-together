@@ -9,9 +9,6 @@ from .models import Venue, Event
 def home(request):
   return render(request, 'home.html')
 
-# class EventList(ListView):
-#   model = Event
-
 def signup(request):
   error_message = ''
   if request.method == 'POST':
