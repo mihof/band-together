@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>All Venues</h1>
+
+{% for venue in venue_list %}
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">{{ venue.name }}</span>
+      <p>Capcity: {{ venue.capacity }}</p>
+      <p>Accessibility: {{ venue.accessibility }}</p>
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}

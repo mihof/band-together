@@ -24,6 +24,7 @@
         <div class="nav-login">
             <ul class="right">
               {% if user.is_authenticated %}
+                <li><a href="{% url 'venue_create' %}">Add an Venue</a></li>
                 <li><a href="{% url 'create' %}">Add an Event</a></li>
                 <li><a href="{% url 'index' %}">View Events</a></li>
                 <li><a href="{% url 'logout' %}">Log Out</a></li>

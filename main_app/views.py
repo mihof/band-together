@@ -46,5 +46,25 @@ class EventUpdate(UpdateView):
   fields = ['artists', 'description', 'date']
 
 class EventDelete(DeleteView):
-  model= Event
+  model = Event
   success_url = '/events/'
+
+class VenueList(ListView):
+  model = Venue
+
+class VenueCreate(CreateView):
+  model = Venue
+  fields = ['name','capacity', 'accessibility']
+  success_url = '/venues/'
+
+  def form_valid(self, form):
+    form.instance.user = self.request.user
+    return super().form_valid(form)
+
+# class EventUpdate(UpdateView):
+#   model = Event
+#   fields = ['artists', 'description', 'date']
+
+# class EventDelete(DeleteView):
+#   model = Event
+#   success_url = '/events/'
