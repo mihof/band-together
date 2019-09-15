@@ -3,6 +3,7 @@
 <h1>All Events</h1>
 
 {% for event in events %}
+<a href="{% url 'detail' event.id %}">
   <div class="card">
     <div class="card-content">
       <span class="card-title">{{ event.artists }}</span>
@@ -10,6 +11,7 @@
       <p>Venue: {{ event.venue.name }}</p>
     </div>
   </div>
+</a>
 {% endfor %}
 
 {% endblock %}
