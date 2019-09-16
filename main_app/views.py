@@ -29,30 +29,32 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
+@login_required
 def event_index(request):
   events = Event.objects.all()
   return render(request, 'events/index.html', { 'events': events })
 
+@login_required
 def event_detail(request, event_id):
   event = Event.objects.get(id=event_id)
   return render(request, 'events/detail.html', { 'event': event })
 
-class EventCreate(CreateView):
+class EventCreate(LoginRequiredMixin, CreateView):
   model = Event
   fields = '__all__'
 
-class EventUpdate(UpdateView):
+class EventUpdate(LoginRequiredMixin, UpdateView):
   model = Event
   fields = ['artists', 'description', 'date']
 
-class EventDelete(DeleteView):
+class EventDelete(LoginRequiredMixin, DeleteView):
   model = Event
   success_url = '/events/'
 
-class VenueList(ListView):
+class VenueList(LoginRequiredMixin, ListView):
   model = Venue
 
-class VenueCreate(CreateView):
+class VenueCreate(LoginRequiredMixin, CreateView):
   model = Venue
   fields = ['name','capacity', 'accessibility']
   success_url = '/venues/'
@@ -61,12 +63,12 @@ class VenueCreate(CreateView):
     form.instance.user = self.request.user
     return super().form_valid(form)
 
-class VenueUpdate(UpdateView):
+class VenueUpdate(LoginRequiredMixin, UpdateView):
   model = Venue
   fields = ['name','capacity', 'accessibility']
   success_url = '/venues/'
 
 
-class VenueDelete(DeleteView):
+class VenueDelete(LoginRequiredMixin, DeleteView):
   model = Venue
   success_url = '/venues/'
