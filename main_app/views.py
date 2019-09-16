@@ -51,8 +51,12 @@ class EventDelete(LoginRequiredMixin, DeleteView):
   model = Event
   success_url = '/events/'
 
-class VenueList(LoginRequiredMixin, ListView):
-  model = Venue
+def venue_index(request):
+  venues = Venue.objects.filter(user=request.user)
+  return render(request, 'venues/venue_index.html', {'venue_list': venues})
+
+# class VenueList(LoginRequiredMixin, ListView):
+#   model = Venue
 
 class VenueCreate(LoginRequiredMixin, CreateView):
   model = Venue
