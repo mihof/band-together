@@ -54,7 +54,7 @@ class VenueList(ListView):
 
 class VenueCreate(CreateView):
   model = Venue
-  fields = ['name','capacity', 'accessibility']
+  fields = ['name', 'address', 'capacity', 'accessibility']
   success_url = '/venues/'
 
   def form_valid(self, form):
