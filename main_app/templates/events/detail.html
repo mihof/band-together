@@ -10,6 +10,7 @@
     <p>Genre: {{ event.genre }}</p>
     <p>Description: {{ event.description }}</p>
   </div>
+  <div id="map" style="width: 250px; height: 250px"></div>
   <div class="card-action">
     <a href="{% url 'update' event.id %}">Edit</a>
     <a href="{% url 'delete' event.id %}">Delete</a>

@@ -18,6 +18,7 @@ ROLES = (
 
 class Venue(models.Model):
   name = models.CharField(max_length=100)
+  address = models.CharField(max_length=200)
   capacity = models.IntegerField()
   accessibility = models.CharField(
     max_length=1,
