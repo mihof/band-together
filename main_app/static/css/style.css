@@ -2,14 +2,13 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background-image: url('https://i.imgur.com/z8Ln37T.png');
+  background-image: url('https://i.imgur.com/0R2TzR9.jpg');
   background-size: cover;
 }
 
 /* Nav Section */
 nav {
-    /* background-color: rgb(36, 216, 177); */
-    /* background-color: teal accent-3; */
+  box-shadow: 0px 15px 9px -10px #000;
 }
 
 .nav-icon {
@@ -18,10 +17,22 @@ nav {
     top: 50%;
     left: 2%;
     transform: translateY(-25%);
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+}
+
+.brand-logo.left {
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
 }
 
 .fa-bars {
     font-size: 30px;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
 }
 
 .brand-logo.left {
@@ -29,12 +40,17 @@ nav {
 
 }
 
-nav ul a {
-    font-size: 20px;
+nav ul a { font-size: 20px;
 }
   
 main {
   flex: 1 0 auto;
+}
+
+.formation {
+  font-size: 1.5em !important;
+  color: #fff !important;
+
 }
 
 .events-header {
@@ -51,16 +67,40 @@ main {
     color: #00695c;
 }
 
+.formation p label {
+  color: white !important;
+    font-size: 30px !important;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+}
+}
+
 /* Footer steez */
-/* footer {
-  padding-top: 0;
-  text-align: right;
-} */
 
 .page-footer  {
     padding-top: 15px;
     padding-bottom: 15px; 
     text-align: center !important;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+}
+
+/* Login section */
+.login-header {
+    color: white !important;
+    font-size: 36px !important;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+}
+
+.input-steez {
+    width: 25%;
+    display: block;
+    border-radius: 10px;
+    text-align: center;
 }
 
 /* Media Queries */
