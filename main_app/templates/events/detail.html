@@ -14,6 +14,18 @@
     <a href="{% url 'update' event.id %}">Edit</a>
     <a href="{% url 'delete' event.id %}">Delete</a>
   </div>
+  <div id="map"></div>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 12
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGzClaUYuh1SzkFzIin6FoDGBJDT8zkjc&callback=initMap"
+    async defer></script>
 </div>
 
 {% endblock %}
