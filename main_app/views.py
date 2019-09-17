@@ -37,6 +37,7 @@ def event_index(request):
 @login_required
 def event_detail(request, event_id):
   event = Event.objects.get(id=event_id)
+  # event_location_url_safe 
   return render(request, 'events/detail.html', { 'event': event })
 
 class EventCreate(LoginRequiredMixin, CreateView):
