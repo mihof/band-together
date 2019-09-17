@@ -3,6 +3,7 @@
 
 <section class="events-listing">
 <h1 class="events-header">Upcoming Events</h1>
+<input type="text"></input>
 
 {% for event in events %}
 <a href="{% url 'detail' event.id %}">
