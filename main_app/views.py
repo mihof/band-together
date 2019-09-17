@@ -5,6 +5,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.admin.views.decorators import staff_member_required
 from .models import Venue, Event
 
 def home(request):
@@ -42,7 +43,7 @@ def event_detail(request, event_id):
 class EventCreate(LoginRequiredMixin, CreateView):
   model = Event
   fields = '__all__'
-
+  
 class EventUpdate(LoginRequiredMixin, UpdateView):
   model = Event
   fields = ['artists', 'description', 'date']
@@ -51,6 +52,7 @@ class EventDelete(LoginRequiredMixin, DeleteView):
   model = Event
   success_url = '/events/'
 
+@staff_member_required
 def venue_index(request):
   venues = Venue.objects.filter(user=request.user)
   return render(request, 'venues/venue_index.html', {'venue_list': venues})
