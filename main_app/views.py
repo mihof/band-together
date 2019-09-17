@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.admin.views.decorators import staff_member_required
 from .models import Venue, Event
+from .forms import EventForm
 
 def home(request):
   return render(request, 'home.html')
@@ -44,6 +45,26 @@ def event_detail(request, event_id):
 class EventCreate(LoginRequiredMixin, CreateView):
   model = Event
   fields = '__all__'
+
+def event_create(request):
+  if request.method == "POST":
+    form = EventForm(request.POST, user=request.user)
+    if form.is_valid():
+      form.save()
+      return redirect('index')
+  else:
+    form = EventForm(user=request.user)
+    return render(request, 'main_app/event_form.html', {'form': form})
+
+  # def bill_new(request):
+#   if request.method == "POST":
+#     form = BillForm(request.POST)
+#     if form.is_valid():
+#       form.save()
+#       return redirect('index')
+#   else:
+#     form = BillForm()
+#     return render(request, 'bills/bill_edit.html', {'form': form})
   
 class EventUpdate(LoginRequiredMixin, UpdateView):
   model = Event
