@@ -1,5 +1,5 @@
 html {
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
 }
 
 body {
@@ -43,11 +43,19 @@ nav {
 
 }
 
-nav ul a { font-size: 20px;
-}
+nav ul a { 
+  font-size: 20px;
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4), 0px 8px 13px rgba(0,0,0,0.1), 0px 18px 23px rgba(0,0,0,0.1) !important;
+}   
 
 ul .sidenav {
   background: teal;
+}
+
+.nav-login {
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4), 
+              0px 8px 13px rgba(0,0,0,0.1), 
+              0px 18px 23px rgba(0,0,0,0.1) !important;
 }
 
 /* Main Section */
@@ -64,7 +72,6 @@ main {
 .formation {
   font-size: 1.5em !important;
   color: #fff !important;
-
 }
 
 .card-content {
@@ -188,15 +195,22 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
   width: 50%;
   margin: 15px auto;
   border-radius: 10px;
+  
+}
+
+.card-hov {
   box-shadow: none;
   transform: scale(1);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
-.card:hover {
+.card-hov:hover {
   box-shadow: 0 0 30px rgba(33,33,33,.9);
   transform: scale(1.1) skew(-2deg, 0deg);
+}
 
+.card-det {
+  width: 80%;
 }
 
 /* events listing page */
@@ -259,7 +273,6 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 
 
 /* add venues page */
-
 .add-venues input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
   background:#fff;
 }
@@ -269,6 +282,17 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
   text-align: center;
   background-image: url(https://i.imgur.com/0R2TzR9.jpg);
   background-size: cover;
+  height: 100vh;
+}
+
+/* event details page */
+.events-detail {
+  background: url('https://i.imgur.com/CZk7ptS.jpg');
+  background-size: cover;
+}
+
+#map {
+  border-radius: 20px;
 }
 
 /* Media Queries */
@@ -325,4 +349,11 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
   padding-bottom: 25px;
   font-size: 3em;
 }
+
+#map {
+  margin: 0 auto;
+  height: 225px !important;
+  width: 225px !important;
+}
+
 }
