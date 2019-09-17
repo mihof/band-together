@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<section class="add-events">
   {% if object %}
     <h1>Edit <span class="teal-text">{{object.name}}</span></h1>
   {% else %}
-    <h1>Add Event</h1>
+    <h1 class="add-header">Add Event</h1>
   {% endif %}
   <!-- Leaving the action empty makes the form post to the same url used to display it -->
-  <form action="" method="post">
+  <form action="" method="post" class="formation-add">
     {% csrf_token %}
     <table>
       <!-- Render the inputs inside of <tr>s & <td>s -->
@@ -15,7 +16,7 @@
     </table>
     <input type="submit" value="Submit!" class="btn">
   </form>
-
+</section>
   <script>
     var dateEl = document.getElementById('id_date');
     M.Datepicker.init(dateEl, {
