@@ -3,7 +3,7 @@
 
 <section class="events-listing">
 <h1 class="events-header">Upcoming Events</h1>
-<input id="search" type="text" name="query" onkeyup=search(event)></input>
+<input id="search" type="text" name="query" onkeyup=search(event) placeholder="Search by Name"></input>
 
 {% for event in events %}
 <a href="{% url 'detail' event.id %}">
