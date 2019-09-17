@@ -44,6 +44,7 @@ class Event(models.Model):
     return reverse('detail', kwargs={'event_id': self.id})
 
   venue = models.ForeignKey(Venue, on_delete=models.CASCADE)
+  tickets = Venue.capacity
 
 class Profile(models.Model):
   user = models.OneToOneField(User, on_delete=models.CASCADE)
