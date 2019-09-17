@@ -1,22 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1>Event Details</h1>
-
 <div class="card">
-  <div class="card-content ">
+  <div class="card-content row">
     <span class="card-title">{{ event.artists }}</span>
-    <p>Date: {{ event.date }}</p>
-    <p>Venue: {{ event.venue.name }}</p>
-    <p>Genre: {{ event.genre }}</p>
-    <p>Description: {{ event.description }}</p>
+    <div class="col s12 m4 offset-m1">
+      <p>Date: {{ event.date }}</p>
+      <p>Venue: {{ event.venue.name }}</p>
+      <p>Genre: {{ event.genre }}</p>
+      <p>Description: {{ event.description }}</p>
+    </div>
+    <div class="col s12 m4">
+        <div id="map" style="width: 250px; height: 250px"></div>
+    </div>
   </div>
-  <div id="map" style="width: 250px; height: 250px"></div>
-  {% if event.venue.user == user %}
-    <div class="card-action">
+  <div class="card-action">
+    {% if event.venue.user == user %}
       <a href="{% url 'update' event.id %}">Edit</a>
       <a href="{% url 'delete' event.id %}">Delete</a>
-    </div>
-  {% endif %}
+    {% endif %}
+  </div>
 </div>
 <script>
   var map;
