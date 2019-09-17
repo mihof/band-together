@@ -1,9 +1,12 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background-image: url('https://i.imgur.com/0R2TzR9.jpg');
-  background-size: cover;
+  background: #000;
 }
 
 /* Nav Section */
@@ -42,9 +45,20 @@ nav {
 
 nav ul a { font-size: 20px;
 }
-  
+
+ul .sidenav {
+  background: teal;
+}
+
+/* Main Section */
 main {
   flex: 1 0 auto;
+}
+
+.mission {
+  background-image: url('https://i.imgur.com/dZKKDWS.jpg');
+  background-size: cover;
+  height: 100vh;
 }
 
 .formation {
@@ -53,63 +67,234 @@ main {
 
 }
 
-.events-header {
-    font-size: 36px;
-    color: #fff;
-    text-shadow:
-		-1px -1px 0 #00695c,
-		1px -1px 0 #00695c,
-		-1px 1px 0 #00695c,
-		1px 1px 0 #00695c;
-}
-
 .card-content {
     color: #00695c;
 }
 
 .formation p label {
   color: white !important;
-    font-size: 30px !important;
-    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+  font-size: 22px !important;
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
              0px 8px 13px rgba(0,0,0,0.1),
              0px 18px 23px rgba(0,0,0,0.1);
 }
-}
+
 
 /* Footer steez */
 
 .page-footer  {
-    padding-top: 15px;
-    padding-bottom: 15px; 
+    padding-top: 15px !important;
+    padding-bottom: 15px !important; 
     text-align: center !important;
     text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
              0px 8px 13px rgba(0,0,0,0.1),
              0px 18px 23px rgba(0,0,0,0.1);
 }
 
+/* Mission Section */
+.mission-header {
+  color: #a7ffeb;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.mission-more {
+  color: #a7ffeb;
+  font-size: 2.75em;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* statement section */
+.statement {
+  height: 100vh;
+  background-image: url('https://i.imgur.com/hAzBkC0.jpg'); 
+  background-size: cover;
+}
+
+.statement-header {
+  color: #a7ffeb;
+  font-size: 30px;
+  text-align: center;
+  text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+    1px 1px 0 #000;
+  padding-top: 20%;
+}
+
+.statement-content {
+  color: #a7ffeb;
+  font-size: 22px;
+  text-align: center;
+  padding-top: 3rem;
+  margin: 0 10%;
+  text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+  
+}
+
 /* Login section */
 .login-header {
     color: white !important;
-    font-size: 36px !important;
+    font-size: 30px !important;
     text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
              0px 8px 13px rgba(0,0,0,0.1),
              0px 18px 23px rgba(0,0,0,0.1);
 }
+
+.section-login {
+  height: 100vh;
+  background-image: url('https://i.imgur.com/0R2TzR9.jpg');
+  background-size: cover;
+  width: 100%;
+  text-align: center;
+}
+
+.login-header {
+  margin: 0;
+  padding-top: 100px;
+}
+
+/* cards and builtins */
 
 .input-steez {
     width: 25%;
     display: block;
     border-radius: 10px;
     text-align: center;
+    margin: 0 auto;
+    background-color: #00695c;
+    box-shadow: 0px 15px 9px -10px #000;
+}
+
+input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.card {
+  width: 50%;
+  margin: 15px auto;
+  border-radius: 10px;
+  box-shadow: none;
+  transform: scale(1);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.card:hover {
+  box-shadow: 0 0 30px rgba(33,33,33,.9);
+  transform: scale(1.1) skew(-2deg, 0deg);
+
+}
+
+/* events listing page */
+.events-listing {
+  background-image: url('https://i.imgur.com/0R2TzR9.jpg');
+  height: 100vh;
+  background-size: cover;
+  text-align: center;
+}
+
+.events-header {
+  font-size: 36px;
+  color: #fff;
+  text-shadow:
+  -1px -1px 0 #00695c,
+  1px -1px 0 #00695c,
+  -1px 1px 0 #00695c,
+  1px 1px 0 #00695c;
+  margin: 0;
+  padding-top: 75px;
+}
+
+/* add events page */
+.add-events {
+  background-image: url('https://i.imgur.com/0R2TzR9.jpg');
+  height: 100vh;
+  text-align: center;
+}
+
+.add-events input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
+  background:#fff;
+}
+
+.formation-add table tbody tr th label {
+  color: #a7ffeb !important;
+  font-size: 22px !important;
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4), 0px 8px 13px rgba(0,0,0,0.1), 0px 18px 23px rgba(0,0,0,0.1);
+}
+
+.add-header {
+  color: #a7ffeb;
+  margin: 0;
+  padding-top: 75px;
+}
+
+.add-events textarea {
+    width: 50%;
+    height: 5rem;
+    background-color: white;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+    border: none;
+}
+
+.add-events .btn {
+  margin-top: 25px;
+}
+
+
+/* add venues page */
+
+.add-venues input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
+  background:#fff;
+}
+
+/* venues list page */
+.venue-list {
+  text-align: center;
+  background-image: url(https://i.imgur.com/0R2TzR9.jpg);
+  background-size: cover;
 }
 
 /* Media Queries */
 
 /* 992px width and down */
 @media only screen and (max-width: 992px) {
-.brand-logo.left {
- /* left: 5% !important; */
-    }
+  .mission-header {
+  font-size:3em;
+  }
+
+  .mission-more {
+    font-size:2em;
+  }
+
+  .statement-header {
+    margin-bottom: -25px;
+  }
+
+  .statement {
+  background-image: url('https://i.imgur.com/2QQQ3NF.jpg');
+  }
+
+  /* upcoming events page */
+  .card {
+    width: 80%;
+  }
 }
 
 /* 992px width and down */
@@ -117,4 +302,27 @@ main {
 .brand-logo.left {
     left: 7% !important;
     }
+
+.mission-header {
+  top: 15%;
+}
+
+/* add events page */
+.add-events input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
+  background:#fff;
+  width: 100%;
+  right: 15px;
+}
+
+.add-events textarea {
+  width: 100%;
+}
+
+.add-header {
+  color: #a7ffeb;
+  margin: 0;
+  padding-top: 50px;
+  padding-bottom: 25px;
+  font-size: 3em;
+}
 }
