@@ -3,7 +3,7 @@
 
 <section class="events-listing">
 <h1 class="events-header">Upcoming Events</h1>
-<input type="text"></input>
+<input id="search" type="text" name="query" onkeyup=search(event)></input>
 
 {% for event in events %}
 <a href="{% url 'detail' event.id %}">
@@ -18,4 +18,17 @@
 
 {% endfor %}
 </section>
+<script defer>
+  function search(event){
+    let input = document.getElementById('search').value;
+    let query = input.toString().toLowerCase().trim();
+    document.querySelectorAll('.card').forEach(event => {
+      if(event.firstElementChild.firstElementChild.textContent.toLowerCase().includes(query)){
+        event.style.display = 'block';
+      } else {
+        event.style.display = 'none';
+      }
+    });
+  }
+</script>
 {% endblock %}
