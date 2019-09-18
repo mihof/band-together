@@ -7,8 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.admin.views.decorators import staff_member_required
 from .models import Venue, Event, Profile, Ticket
-from .forms import EventForm, TicketForm
-from django.db import transaction
+from .forms import EventForm
 
 def home(request):
   return render(request, 'home.html')
@@ -40,7 +39,6 @@ def event_index(request):
 @login_required
 def event_detail(request, event_id):
   event = Event.objects.get(id=event_id)
-  # event_location_url_safe 
   return render(request, 'events/detail.html', { 'event': event })
 
 def event_create(request):
@@ -54,16 +52,6 @@ def event_create(request):
   else:
     form = EventForm(user=request.user)
     return render(request, 'main_app/event_form.html', {'form': form})
-
-  # def bill_new(request):
-#   if request.method == "POST":
-#     form = BillForm(request.POST)
-#     if form.is_valid():
-#       form.save()
-#       return redirect('index')
-#   else:
-#     form = BillForm()
-#     return render(request, 'bills/bill_edit.html', {'form': form})
   
 class EventUpdate(LoginRequiredMixin, UpdateView):
   model = Event
@@ -77,9 +65,6 @@ class EventDelete(LoginRequiredMixin, DeleteView):
 def venue_index(request):
   venues = Venue.objects.filter(user=request.user)
   return render(request, 'venues/venue_index.html', {'venue_list': venues})
-
-# class VenueList(LoginRequiredMixin, ListView):
-#   model = Venue
 
 class VenueCreate(LoginRequiredMixin, CreateView):
   model = Venue
@@ -107,25 +92,3 @@ def ticket_create(request, event_id):
   event.total_tickets -= 1
   event.save()
   return redirect('/events/')
-
-  # if request.method == "POST":
-  #   event = Event.objects.get(id=event_id)
-  #   form = TicketForm(request.POST)
-  #   print(event)
-  #   print(form)
-  #   if form.is_valid():
-  #     ticket = form.save(commit=False) 
-  #     ticket.user = request.user
-  #     ticket.event = event
-  #     ticket.save()
-  #     event.total_tickets -= 1
-  #     event.save()
-  #     print('ticket create after if')
-  #     return redirect('/events/')
-  # else:
-  #   print('ticket create not if')
-  #   return render(request, 'events/index.html')
-    
-    
-
-  
