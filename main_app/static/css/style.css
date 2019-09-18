@@ -321,7 +321,7 @@ input#search.search-bar {
   background-image: url(https://i.imgur.com/0R2TzR9.jpg);
   background-size: cover;
   background-attachment: fixed;
-  /* height: 110%; */
+  height: 100%;
 }
 
 /* event details page */
