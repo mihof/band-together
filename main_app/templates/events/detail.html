@@ -16,6 +16,12 @@
     </div>
   </div>
   <div class="card-action">
+      {% if event.total_tickets > 0 %}
+      <form action="{% url 'ticket' event.id %}" method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn">Tickets</button>
+      </form>
+    {% endif %}
     {% if event.venue.user == user %}
       <a href="{% url 'update' event.id %}">Edit</a>
       <a href="{% url 'delete' event.id %}">Delete</a>
