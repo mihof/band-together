@@ -4,9 +4,13 @@ html {
 
 body {
   display: flex;
-  min-height: 100vh;
+  min-height: 100%;
   flex-direction: column;
   background: #000;
+}
+
+section {
+  background-attachment: fixed;
 }
 
 /* div:last-child {
@@ -72,7 +76,7 @@ main {
 .mission {
   background-image: url('https://i.imgur.com/dZKKDWS.jpg');
   background-size: cover;
-  height: 100vh;
+  height: 100%;
 }
 
 .formation {
@@ -127,7 +131,7 @@ footer  {
 
 /* statement section */
 .statement {
-  height: 100vh;
+  height: 100%;
   background-image: url('https://i.imgur.com/hAzBkC0.jpg'); 
   background-size: cover;
 }
@@ -168,7 +172,7 @@ footer  {
 }
 
 .section-login {
-  height: 100vh;
+  height: 100%;
   background-image: url('https://i.imgur.com/0R2TzR9.jpg');
   background-size: cover;
   width: 100%;
@@ -225,7 +229,7 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 /* events listing page */
 .events-listing {
   background-image: url('https://i.imgur.com/0R2TzR9.jpg');
-  height: 100vh;
+  height: 100%;
   background-size: cover;
   text-align: center;
 }
@@ -245,7 +249,7 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 /* add events page */
 .add-events {
   background-image: url('https://i.imgur.com/0R2TzR9.jpg');
-  height: 100vh;
+  height: 100%;
   text-align: center;
 }
 
@@ -291,7 +295,7 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
   text-align: center;
   background-image: url(https://i.imgur.com/0R2TzR9.jpg);
   background-size: cover;
-  height: 100vh;
+  height: 100%;
 }
 
 /* event details page */
