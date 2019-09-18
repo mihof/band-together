@@ -1,5 +1,5 @@
 from django.db import models
-from django.urls import reverse
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.contrib.auth.models import User
 from datetime import date
 from django.dispatch import receiver
@@ -14,6 +14,18 @@ OPTIONS = (
 ROLES = (
   ('C', 'Customer'),
   ('M', 'Manager')
+)
+
+QUANTITY = (
+  ('0', 0),
+  ('1', 1),
+  ('2', 2),
+  ('3', 3),
+  ('4', 4),
+  ('5', 5),
+  ('6', 6),
+  ('7', 7),
+  ('8', 8),
 )
 
 class Venue(models.Model):
@@ -36,6 +48,8 @@ class Event(models.Model):
   artists = models.CharField(max_length=100)
   description = models.TextField(max_length=800)
   date = models.DateField('date of show')
+  # ticket_price = models.IntegerField()
+  total_tickets = models.IntegerField()
 
   def __str__(self):
     return self.artists
@@ -44,7 +58,6 @@ class Event(models.Model):
     return reverse('detail', kwargs={'event_id': self.id})
 
   venue = models.ForeignKey(Venue, on_delete=models.CASCADE)
-  tickets = Venue.capacity
 
 class Profile(models.Model):
   user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -64,3 +77,6 @@ class Profile(models.Model):
   def save_user_profile(sender, instance, **kwargs):
     instance.profile.save()
 
+class Ticket(models.Model):
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
+  event = models.ForeignKey(Event, on_delete=models.CASCADE)
