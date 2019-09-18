@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Event Details</h1>
-<div class="card">
+<section class="events-detail">
+<h1 class="events-header">Event Details</h1>
+<div class="card card-det">
   <div class="card-content row">
     <span class="card-title">{{ event.artists }}</span>
-    <div class="col s12 m4 offset-m1">
+    <div class="col s12 m4 offset-m1 card-desc">
       <p>Date: {{ event.date }}</p>
       <p>Venue: {{ event.venue.name }}</p>
       <p>Genre: {{ event.genre }}</p>
@@ -22,11 +23,14 @@
       </form>
     {% endif %}
     {% if event.venue.user == user %}
+    <div class="edit-event">
       <a href="{% url 'update' event.id %}">Edit</a>
       <a href="{% url 'delete' event.id %}">Delete</a>
+    </div>
     {% endif %}
   </div>
 </div>
+</section>
 <script>
   var map;
   var service;

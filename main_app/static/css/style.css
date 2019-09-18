@@ -1,12 +1,26 @@
+/* css variables */
+:root {
+  --shade: 0px 4px 3px rgba(0,0,0,0.4),
+  0px 8px 13px rgba(0,0,0,0.1),
+  0px 18px 23px rgba(0,0,0,0.1);
+}
+
+/* general app stylings */
 html {
   scroll-behavior: smooth;
 }
 
 body {
   display: flex;
-  min-height: 100vh;
+  min-height: 100%;
   flex-direction: column;
   background: #000;
+  margin-bottom: 44px;
+}
+
+form {
+  background: rgba(255,255,255,.1);
+  padding: 15px;
 }
 
 /* Nav Section */
@@ -33,26 +47,32 @@ nav {
 
 .fa-bars {
     font-size: 30px;
-    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-             0px 8px 13px rgba(0,0,0,0.1),
-             0px 18px 23px rgba(0,0,0,0.1);
+    text-shadow: var(--shade);
 }
 
 .brand-logo.left {
  left: 5% !important;
-
 }
 
-nav ul a { font-size: 20px;
-}
+nav ul a { 
+  font-size: 20px;
+  text-shadow: var(--shade) !important;
+}   
 
 ul .sidenav {
   background: teal;
 }
 
+.nav-login {
+  text-shadow: var(--shade) !important;
+}
+
 /* Main Section */
 main {
   flex: 1 0 auto;
+  margin: 0 !important;
+  width: 100% !important;
+  
 }
 
 .mission {
@@ -64,7 +84,6 @@ main {
 .formation {
   font-size: 1.5em !important;
   color: #fff !important;
-
 }
 
 .card-content {
@@ -74,21 +93,20 @@ main {
 .formation p label {
   color: white !important;
   font-size: 22px !important;
-  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-             0px 8px 13px rgba(0,0,0,0.1),
-             0px 18px 23px rgba(0,0,0,0.1);
+  text-shadow: var(--shade);
 }
 
 
 /* Footer steez */
 
-.page-footer  {
-    padding-top: 15px !important;
-    padding-bottom: 15px !important; 
+footer  {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important; 
     text-align: center !important;
-    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-             0px 8px 13px rgba(0,0,0,0.1),
-             0px 18px 23px rgba(0,0,0,0.1);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-shadow: var(--shade);
 }
 
 /* Mission Section */
@@ -132,7 +150,7 @@ main {
   color: #a7ffeb;
   font-size: 22px;
   text-align: center;
-  padding-top: 3rem;
+  padding-top: 2rem;
   margin: 0 10%;
   text-shadow:
 		-1px -1px 0 #000,
@@ -152,7 +170,7 @@ main {
 }
 
 .section-login {
-  height: 100vh;
+  height: 100%;
   background-image: url('https://i.imgur.com/0R2TzR9.jpg');
   background-size: cover;
   width: 100%;
@@ -185,30 +203,43 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 }
 
 .card {
-  width: 50%;
+  width: 30%;
   margin: 15px auto;
   border-radius: 10px;
+  
+}
+
+.card-hov {
   box-shadow: none;
   transform: scale(1);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
-.card:hover {
+.card-hov:hover {
   box-shadow: 0 0 30px rgba(33,33,33,.9);
   transform: scale(1.1) skew(-2deg, 0deg);
+}
 
+.card-det {
+  width: 40%;
 }
 
 /* events listing page */
 .events-listing {
   background-image: url('https://i.imgur.com/0R2TzR9.jpg');
-  height: 100vh;
+  /* height: 100vh; */
   background-size: cover;
   text-align: center;
+  background-attachment: fixed;
+}
+
+input#search.search-bar {
+  width: 20%;
+  margin-top: 20px;
 }
 
 .events-header {
-  font-size: 36px;
+  font-size: 42px;
   color: #fff;
   text-shadow:
   -1px -1px 0 #00695c,
@@ -216,7 +247,7 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
   -1px 1px 0 #00695c,
   1px 1px 0 #00695c;
   margin: 0;
-  padding-top: 75px;
+  padding-top: 50px;
 }
 
 /* add events page */
@@ -230,10 +261,30 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
   background:#fff;
 }
 
+.formation-add  {
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 10%;
+}
+
 .formation-add table tbody tr th label {
   color: #a7ffeb !important;
   font-size: 22px !important;
   text-shadow: 0px 4px 3px rgba(0,0,0,0.4), 0px 8px 13px rgba(0,0,0,0.1), 0px 18px 23px rgba(0,0,0,0.1);
+}
+
+.formation-add label {
+  color: #fff !important;
+  font-size: 22px !important;
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4), 0px 8px 13px rgba(36, 31, 31, 0.1), 0px 18px 23px rgba(0,0,0,0.1);
+}
+
+.formation-add p {
+  margin: 0;
+}
+
+.select-wrapper .caret {
+  opacity: 0;
 }
 
 .add-header {
@@ -259,9 +310,9 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 
 
 /* add venues page */
-
 .add-venues input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
   background:#fff;
+  margin: 0 auto;
 }
 
 /* venues list page */
@@ -269,12 +320,48 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
   text-align: center;
   background-image: url(https://i.imgur.com/0R2TzR9.jpg);
   background-size: cover;
+  background-attachment: fixed;
+  /* height: 110%; */
+}
+
+/* event details page */
+.events-detail {
+  background: url('https://i.imgur.com/CZk7ptS.jpg');
+  background-size: contain;
+  height: 100vh;
+}
+
+.events-detail h1 {
+  text-align: center;
+}
+
+#map {
+  border-radius: 20px;
+}
+
+.card-title {
+  text-align: center;
+}
+
+.card-action {
+  text-align: center;
 }
 
 /* Media Queries */
 
+/* 1280px width and down */
+@media only screen and (max-width: 1280px) {
+  .card-det {
+    width: 60%;
+  }
+}
+
 /* 992px width and down */
 @media only screen and (max-width: 992px) {
+  .card-det {
+    width: 80%;
+  }
+
   .mission-header {
   font-size:3em;
   }
@@ -292,16 +379,53 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
   }
 
   /* upcoming events page */
-  .card {
-    width: 80%;
+  .card-event {
+    width: 50%;
+  }
+
+  input#search.search-bar {
+    width: 40%;
+  }
+
+  .events-detail {
+    background-size: cover;
   }
 }
 
-/* 992px width and down */
+/* 601px width and down */
+@media only screen and (max-width: 601px) {
+  #map {
+    margin: 0 auto;
+  }
+
+  .card-desc {
+    margin: 0 auto !important;
+    text-align: center;
+  }
+}
+
+
+/* 480px width and down */
 @media only screen and (max-width: 480px) {
+
+.statement {
+  height: 80vh;
+}  
+
+.statement-header {
+  padding-top: 10%;
+}
+
 .brand-logo.left {
     left: 7% !important;
     }
+.card{
+  width: 70%;
+}
+
+input#search.search-bar {
+  width: 50%;
+}
 
 .mission-header {
   top: 15%;
@@ -325,4 +449,11 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
   padding-bottom: 25px;
   font-size: 3em;
 }
+
+#map {
+  margin: 0 auto;
+  height: 225px !important;
+  width: 225px !important;
+}
+
 }
