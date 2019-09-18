@@ -5,7 +5,9 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Venue, Event
+from django.contrib.admin.views.decorators import staff_member_required
+from .models import Venue, Event, Profile, Ticket
+from .forms import EventForm
 
 def home(request):
   return render(request, 'home.html')
@@ -29,44 +31,71 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
+@login_required
 def event_index(request):
   events = Event.objects.all()
   return render(request, 'events/index.html', { 'events': events })
 
+@login_required
 def event_detail(request, event_id):
   event = Event.objects.get(id=event_id)
   return render(request, 'events/detail.html', { 'event': event })
 
-class EventCreate(CreateView):
-  model = Event
-  fields = '__all__'
-
-class EventUpdate(UpdateView):
+@staff_member_required
+def event_create(request):
+  if request.method == "POST":
+    form = EventForm(request.POST, user=request.user)
+    if form.is_valid():
+      event = form.save(commit=False)
+      event.total_tickets = event.venue.capacity
+      event.save()
+      return redirect('index')
+  else:
+    form = EventForm(user=request.user)
+    return render(request, 'main_app/event_form.html', {'form': form})
+  
+class EventUpdate(LoginRequiredMixin, UpdateView):
   model = Event
   fields = ['artists', 'description', 'date']
 
-class EventDelete(DeleteView):
+class EventDelete(LoginRequiredMixin, DeleteView):
   model = Event
   success_url = '/events/'
 
-class VenueList(ListView):
-  model = Venue
+@staff_member_required
+def venue_index(request):
+  venues = Venue.objects.filter(user=request.user)
+  return render(request, 'venues/venue_index.html', {'venue_list': venues})
 
-class VenueCreate(CreateView):
+class VenueCreate(LoginRequiredMixin, CreateView):
   model = Venue
-  fields = ['name','capacity', 'accessibility']
+  fields = ['name', 'address', 'capacity', 'accessibility']
   success_url = '/venues/'
 
   def form_valid(self, form):
     form.instance.user = self.request.user
     return super().form_valid(form)
 
-class VenueUpdate(UpdateView):
+class VenueUpdate(LoginRequiredMixin, UpdateView):
   model = Venue
   fields = ['name','capacity', 'accessibility']
   success_url = '/venues/'
 
 
-class VenueDelete(DeleteView):
+class VenueDelete(LoginRequiredMixin, DeleteView):
   model = Venue
   success_url = '/venues/'
+
+@login_required
+def ticket_create(request, event_id):
+  event = Event.objects.get(id=event_id)
+  ticket = Ticket(event=event, user=request.user)
+  ticket.save()
+  event.total_tickets -= 1
+  event.save()
+  return redirect('/profile/')
+
+@login_required
+def profile(request):
+  tickets = Ticket.objects.filter(user=request.user)
+  return render(request, 'profile.html', { 'tickets': tickets })

@@ -1,8 +1,10 @@
 from django.db import models
-from django.urls import reverse
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.contrib.auth.models import User
 from datetime import date
-# Create your models here.
+from django.dispatch import receiver
+from django.urls import reverse
+from django.db.models.signals import post_save
 
 OPTIONS = (
   ('Y', 'Yes'),
@@ -14,8 +16,21 @@ ROLES = (
   ('M', 'Manager')
 )
 
+QUANTITY = (
+  ('0', 0),
+  ('1', 1),
+  ('2', 2),
+  ('3', 3),
+  ('4', 4),
+  ('5', 5),
+  ('6', 6),
+  ('7', 7),
+  ('8', 8),
+)
+
 class Venue(models.Model):
   name = models.CharField(max_length=100)
+  address = models.CharField(max_length=200)
   capacity = models.IntegerField()
   accessibility = models.CharField(
     max_length=1,
@@ -33,6 +48,7 @@ class Event(models.Model):
   artists = models.CharField(max_length=100)
   description = models.TextField(max_length=800)
   date = models.DateField('date of show')
+  total_tickets = models.IntegerField()
 
   def __str__(self):
     return self.artists
@@ -51,3 +67,15 @@ class Profile(models.Model):
   )
   favorite_color = models.CharField(max_length=50)
 
+  @receiver(post_save, sender=User)
+  def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+      Profile.objects.create(user=instance)
+
+  @receiver(post_save, sender=User)
+  def save_user_profile(sender, instance, **kwargs):
+    instance.profile.save()
+
+class Ticket(models.Model):
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
+  event = models.ForeignKey(Event, on_delete=models.CASCADE)
