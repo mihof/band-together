@@ -92,3 +92,8 @@ def ticket_create(request, event_id):
   event.total_tickets -= 1
   event.save()
   return redirect('/events/')
+
+@login_required
+def profile(request):
+  tickets = Ticket.object.filter(user=request.user)
+  return render(request, 'profile.html', { 'tickets': tickets })

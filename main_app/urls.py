@@ -15,4 +15,5 @@ urlpatterns = [
   path('venues/<int:pk>/update/', staff_member_required(views.VenueUpdate.as_view()), name='venue_update'),
   path('venues/<int:pk>/delete/', staff_member_required(views.VenueDelete.as_view()), name='venue_delete'),
   path('events/<int:event_id>/ticket/', views.ticket_create, name='ticket'),
+  path('profile/', views.profile, name='profile'),
 ]
