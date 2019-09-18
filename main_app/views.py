@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.admin.views.decorators import staff_member_required
 from .models import Venue, Event, Profile, Ticket
-from .forms import EventForm
+from .forms import EventForm, TicketForm
 from django.db import transaction
 
 def home(request):
@@ -42,10 +42,6 @@ def event_detail(request, event_id):
   event = Event.objects.get(id=event_id)
   # event_location_url_safe 
   return render(request, 'events/detail.html', { 'event': event })
-
-class EventCreate(LoginRequiredMixin, CreateView):
-  model = Event
-  fields = '__all__'
 
 def event_create(request):
   if request.method == "POST":
@@ -104,13 +100,32 @@ class VenueDelete(LoginRequiredMixin, DeleteView):
   model = Venue
   success_url = '/venues/'
 
-def create_ticket(request, event_id):
-  number_of_tickets = Event.object.filter(total_tickets=(event_id))
+def ticket_create(request, event_id):
+  event = Event.objects.get(id=event_id)
+  ticket = Ticket(event=event, user=request.user)
+  ticket.save()
+  event.total_tickets -= 1
+  event.save()
+  return redirect('/events/')
 
-  if number_of_tickets > 0:
-    Ticket.objects.create(user=request.user)
-    number_of_tickets -= 1
-  else:
-    return
+  # if request.method == "POST":
+  #   event = Event.objects.get(id=event_id)
+  #   form = TicketForm(request.POST)
+  #   print(event)
+  #   print(form)
+  #   if form.is_valid():
+  #     ticket = form.save(commit=False) 
+  #     ticket.user = request.user
+  #     ticket.event = event
+  #     ticket.save()
+  #     event.total_tickets -= 1
+  #     event.save()
+  #     print('ticket create after if')
+  #     return redirect('/events/')
+  # else:
+  #   print('ticket create not if')
+  #   return render(request, 'events/index.html')
+    
+    
 
   
