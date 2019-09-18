@@ -1,5 +1,5 @@
 from django import forms
-from .models import Event, Venue
+from .models import Event, Venue, Ticket
 
 class EventForm(forms.ModelForm):
   class Meta:
@@ -10,3 +10,7 @@ class EventForm(forms.ModelForm):
     user = kwargs.pop('user')
     super().__init__(*args, **kwargs)
     self.fields['venue'].queryset = Venue.objects.filter(user=user)
+
+class TicketForm(forms.ModelForm):
+  class Meta:
+    model = Ticket
