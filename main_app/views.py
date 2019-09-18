@@ -101,23 +101,30 @@ class VenueDelete(LoginRequiredMixin, DeleteView):
   success_url = '/venues/'
 
 def ticket_create(request, event_id):
-  if request.method == "POST":
-    event = Event.objects.get(id=event_id)
-    form = TicketForm(request.POST)
-    print(event)
-    print(form)
-    if form.is_valid():
-      ticket = form.save(commit=False) 
-      ticket.user = request.user
-      ticket.event = event
-      ticket.save()
-      event.total_tickets -= 1
-      event.save()
-      print('ticket create after if')
-      return redirect('/events/')
-  else:
-    print('ticket create not if')
-    return render(request, 'events/index.html')
+  event = Event.objects.get(id=event_id)
+  ticket = Ticket(event=event, user=request.user)
+  ticket.save()
+  event.total_tickets -= 1
+  event.save()
+  return redirect('/events/')
+
+  # if request.method == "POST":
+  #   event = Event.objects.get(id=event_id)
+  #   form = TicketForm(request.POST)
+  #   print(event)
+  #   print(form)
+  #   if form.is_valid():
+  #     ticket = form.save(commit=False) 
+  #     ticket.user = request.user
+  #     ticket.event = event
+  #     ticket.save()
+  #     event.total_tickets -= 1
+  #     event.save()
+  #     print('ticket create after if')
+  #     return redirect('/events/')
+  # else:
+  #   print('ticket create not if')
+  #   return render(request, 'events/index.html')
     
     
 
