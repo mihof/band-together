@@ -7,15 +7,18 @@ body {
   min-height: 100%;
   flex-direction: column;
   background: #000;
+  margin-bottom: 44px;
 }
 
 section {
   background-attachment: fixed;
 }
 
-/* div:last-child {
-  margin-bottom: 50px;
-} */
+form {
+  background: rgba(255,255,255,.1);
+  padding: 15px;
+}
+
 
 /* Nav Section */
 nav {
@@ -206,14 +209,10 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 }
 
 .card {
-  width: 50%;
+  width: 30%;
   margin: 15px auto;
   border-radius: 10px;
   
-}
-
-.card:last-child {
-  padding-bottom: 100px;
 }
 
 .card-hov {
@@ -239,6 +238,11 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
   text-align: center;
 }
 
+input#search.search-bar {
+  width: 20%;
+  margin-top: 20px;
+}
+
 .events-header {
   font-size: 36px;
   color: #fff;
@@ -248,7 +252,7 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
   -1px 1px 0 #00695c,
   1px 1px 0 #00695c;
   margin: 0;
-  padding-top: 75px;
+  padding-top: 50px;
 }
 
 /* add events page */
@@ -260,6 +264,11 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 
 .add-events input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
   background:#fff;
+}
+
+.formation-add  {
+  width: 70%;
+  margin: 0 auto;
 }
 
 .formation-add table tbody tr th label {
@@ -335,7 +344,11 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 
   /* upcoming events page */
   .card {
-    width: 80%;
+    width: 50%;
+  }
+
+  input#search.search-bar {
+    width: 40%;
   }
 }
 
@@ -344,6 +357,13 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 .brand-logo.left {
     left: 7% !important;
     }
+.card{
+  width: 70%;
+}
+
+input#search.search-bar {
+  width: 50%;
+}
 
 .mission-header {
   top: 15%;
