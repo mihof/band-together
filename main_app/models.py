@@ -48,7 +48,6 @@ class Event(models.Model):
   artists = models.CharField(max_length=100)
   description = models.TextField(max_length=800)
   date = models.DateField('date of show')
-  # ticket_price = models.IntegerField()
   total_tickets = models.IntegerField()
 
   def __str__(self):
