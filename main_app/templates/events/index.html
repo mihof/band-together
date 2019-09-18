@@ -6,8 +6,6 @@
 
 <input class="search-bar" id="search" type="text" name="query" onkeyup=search(event) placeholder="Search by Name"></input>
 
-
-
 {% for event in events %}
 <a href="{% url 'detail' event.id %}">
   <div class="card card-hov card-event">

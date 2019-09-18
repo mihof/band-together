@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
-<section class="ticket-list">
-<h1 class="events-header">{{ user.name }} Tickets</h1>
 
-{% if tickets|length > 1 %}
+<section class="ticket-list">
+<h1 class="events-header">{{ user }} Tickets</h1>
+{% if tickets|length > 0 %}
   {% for ticket in tickets %}
     <div class="card">
       <div class="card-content">

@@ -41,6 +41,7 @@ def event_detail(request, event_id):
   event = Event.objects.get(id=event_id)
   return render(request, 'events/detail.html', { 'event': event })
 
+@staff_member_required
 def event_create(request):
   if request.method == "POST":
     form = EventForm(request.POST, user=request.user)
@@ -85,6 +86,7 @@ class VenueDelete(LoginRequiredMixin, DeleteView):
   model = Venue
   success_url = '/venues/'
 
+@login_required
 def ticket_create(request, event_id):
   event = Event.objects.get(id=event_id)
   ticket = Ticket(event=event, user=request.user)

@@ -10,10 +10,10 @@ urlpatterns = [
   path('events/create/', views.event_create, name='create'),
   path('events/<int:pk>/update/', staff_member_required(views.EventUpdate.as_view()), name='update'),
   path('events/<int:pk>/delete/', staff_member_required(views.EventDelete.as_view()), name='delete'),
+  path('events/<int:event_id>/ticket/', views.ticket_create, name='ticket'),
   path('venues/', views.venue_index, name='venue_index'),
   path('venues/create/', staff_member_required(views.VenueCreate.as_view()), name='venue_create'),
   path('venues/<int:pk>/update/', staff_member_required(views.VenueUpdate.as_view()), name='venue_update'),
   path('venues/<int:pk>/delete/', staff_member_required(views.VenueDelete.as_view()), name='venue_delete'),
-  path('events/<int:event_id>/ticket/', views.ticket_create, name='ticket'),
   path('profile/', views.profile, name='profile'),
 ]
