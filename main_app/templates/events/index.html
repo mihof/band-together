@@ -10,7 +10,7 @@
 
 {% for event in events %}
 <a href="{% url 'detail' event.id %}">
-  <div class="card card-hov">
+  <div class="card card-hov card-event">
     <div class="card-content">
       <span class="card-title">{{ event.artists }}</span>
       <p>Date: {{ event.date }}</p>

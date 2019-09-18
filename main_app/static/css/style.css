@@ -221,7 +221,7 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 }
 
 .card-det {
-  width: 80%;
+  width: 40%;
 }
 
 /* events listing page */
@@ -327,7 +327,7 @@ input#search.search-bar {
 /* event details page */
 .events-detail {
   background: url('https://i.imgur.com/CZk7ptS.jpg');
-  background-size: cover;
+  background-size: contain;
   height: 100vh;
 }
 
@@ -339,10 +339,29 @@ input#search.search-bar {
   border-radius: 20px;
 }
 
+.card-title {
+  text-align: center;
+}
+
+.card-action {
+  text-align: center;
+}
+
 /* Media Queries */
+
+/* 1280px width and down */
+@media only screen and (max-width: 1280px) {
+  .card-det {
+    width: 60%;
+  }
+}
 
 /* 992px width and down */
 @media only screen and (max-width: 992px) {
+  .card-det {
+    width: 80%;
+  }
+
   .mission-header {
   font-size:3em;
   }
@@ -360,16 +379,33 @@ input#search.search-bar {
   }
 
   /* upcoming events page */
-  .card {
+  .card-event {
     width: 50%;
   }
 
   input#search.search-bar {
     width: 40%;
   }
+
+  .events-detail {
+    background-size: cover;
+  }
 }
 
-/* 992px width and down */
+/* 601px width and down */
+@media only screen and (max-width: 601px) {
+  #map {
+    margin: 0 auto;
+  }
+
+  .card-desc {
+    margin: 0 auto !important;
+    text-align: center;
+  }
+}
+
+
+/* 480px width and down */
 @media only screen and (max-width: 480px) {
 
 .statement {
