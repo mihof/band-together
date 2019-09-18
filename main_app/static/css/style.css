@@ -1,3 +1,11 @@
+/* css variables */
+:root {
+  --shade: 0px 4px 3px rgba(0,0,0,0.4),
+  0px 8px 13px rgba(0,0,0,0.1),
+  0px 18px 23px rgba(0,0,0,0.1);
+}
+
+/* general app stylings */
 html {
   scroll-behavior: smooth;
 }
@@ -10,15 +18,10 @@ body {
   margin-bottom: 44px;
 }
 
-/* section {
-  background-attachment: fixed;
-} */
-
 form {
   background: rgba(255,255,255,.1);
   padding: 15px;
 }
-
 
 /* Nav Section */
 nav {
@@ -44,19 +47,16 @@ nav {
 
 .fa-bars {
     font-size: 30px;
-    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-             0px 8px 13px rgba(0,0,0,0.1),
-             0px 18px 23px rgba(0,0,0,0.1);
+    text-shadow: var(--shade);
 }
 
 .brand-logo.left {
  left: 5% !important;
-
 }
 
 nav ul a { 
   font-size: 20px;
-  text-shadow: 0px 4px 3px rgba(0,0,0,0.4), 0px 8px 13px rgba(0,0,0,0.1), 0px 18px 23px rgba(0,0,0,0.1) !important;
+  text-shadow: var(--shade) !important;
 }   
 
 ul .sidenav {
@@ -64,9 +64,7 @@ ul .sidenav {
 }
 
 .nav-login {
-  text-shadow: 0px 4px 3px rgba(0,0,0,0.4), 
-              0px 8px 13px rgba(0,0,0,0.1), 
-              0px 18px 23px rgba(0,0,0,0.1) !important;
+  text-shadow: var(--shade) !important;
 }
 
 /* Main Section */
@@ -95,9 +93,7 @@ main {
 .formation p label {
   color: white !important;
   font-size: 22px !important;
-  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-             0px 8px 13px rgba(0,0,0,0.1),
-             0px 18px 23px rgba(0,0,0,0.1);
+  text-shadow: var(--shade);
 }
 
 
@@ -110,9 +106,7 @@ footer  {
     position: fixed;
     bottom: 0;
     width: 100%;
-    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-             0px 8px 13px rgba(0,0,0,0.1),
-             0px 18px 23px rgba(0,0,0,0.1);
+    text-shadow: var(--shade);
 }
 
 /* Mission Section */
@@ -233,9 +227,10 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 /* events listing page */
 .events-listing {
   background-image: url('https://i.imgur.com/0R2TzR9.jpg');
-  height: 100vh;
+  /* height: 100vh; */
   background-size: cover;
   text-align: center;
+  background-attachment: fixed;
 }
 
 input#search.search-bar {
@@ -325,7 +320,8 @@ input#search.search-bar {
   text-align: center;
   background-image: url(https://i.imgur.com/0R2TzR9.jpg);
   background-size: cover;
-  height: 110%;
+  background-attachment: fixed;
+  /* height: 110%; */
 }
 
 /* event details page */
