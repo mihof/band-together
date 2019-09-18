@@ -6,8 +6,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.admin.views.decorators import staff_member_required
-from .models import Venue, Event
+from .models import Venue, Event, Profile, Ticket
 from .forms import EventForm
+from django.db import transaction
 
 def home(request):
   return render(request, 'home.html')
@@ -50,7 +51,9 @@ def event_create(request):
   if request.method == "POST":
     form = EventForm(request.POST, user=request.user)
     if form.is_valid():
-      form.save()
+      event = form.save(commit=False)
+      event.total_tickets = event.venue.capacity
+      event.save()
       return redirect('index')
   else:
     form = EventForm(user=request.user)
@@ -100,3 +103,14 @@ class VenueUpdate(LoginRequiredMixin, UpdateView):
 class VenueDelete(LoginRequiredMixin, DeleteView):
   model = Venue
   success_url = '/venues/'
+
+def create_ticket(request, event_id):
+  number_of_tickets = Event.object.filter(total_tickets=(event_id))
+
+  if number_of_tickets > 0:
+    Ticket.objects.create(user=request.user)
+    number_of_tickets -= 1
+  else:
+    return
+
+  
