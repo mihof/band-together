@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="ticket-list">
+<h1 class="events-header">{{ user.name }} Tickets</h1>
+
+{% if tickets|length > 1 %}
+  {% for ticket in tickets %}
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title">{{ ticket.event.artists }}</span>
+        <p>Venue: {{ ticket.event.venue.name }}</p>
+        <p>Date: {{ ticket.event.date }}</p>
+        <p>Address: {{ ticket.event.venue.address }}</p>
+      </div>
+    </div>
+  {% endfor %}
+{% else %}
+  <div class="card">
+    <div class="card-content">
+      <h3 class="center">No Tickets Yet</h3>
+    </div>
+  </div>
+{% endif %}
+</section>
+
+{% endblock %}
