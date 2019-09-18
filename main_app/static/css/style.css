@@ -244,7 +244,7 @@ input#search.search-bar {
 }
 
 .events-header {
-  font-size: 36px;
+  font-size: 42px;
   color: #fff;
   text-shadow:
   -1px -1px 0 #00695c,
@@ -267,14 +267,29 @@ input#search.search-bar {
 }
 
 .formation-add  {
-  width: 70%;
+  width: 50%;
   margin: 0 auto;
+  border-radius: 10%;
 }
 
 .formation-add table tbody tr th label {
   color: #a7ffeb !important;
   font-size: 22px !important;
   text-shadow: 0px 4px 3px rgba(0,0,0,0.4), 0px 8px 13px rgba(0,0,0,0.1), 0px 18px 23px rgba(0,0,0,0.1);
+}
+
+.formation-add label {
+  color: #fff !important;
+  font-size: 22px !important;
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4), 0px 8px 13px rgba(36, 31, 31, 0.1), 0px 18px 23px rgba(0,0,0,0.1);
+}
+
+.formation-add p {
+  margin: 0;
+}
+
+.select-wrapper .caret {
+  opacity: 0;
 }
 
 .add-header {
@@ -302,6 +317,7 @@ input#search.search-bar {
 /* add venues page */
 .add-venues input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
   background:#fff;
+  margin: 0 auto;
 }
 
 /* venues list page */
@@ -316,6 +332,11 @@ input#search.search-bar {
 .events-detail {
   background: url('https://i.imgur.com/CZk7ptS.jpg');
   background-size: cover;
+  height: 100vh;
+}
+
+.events-detail h1 {
+  text-align: center;
 }
 
 #map {
