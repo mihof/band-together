@@ -1,5 +1,5 @@
 html {
-  /* scroll-behavior: smooth; */
+  scroll-behavior: smooth;
 }
 
 body {
@@ -10,9 +10,9 @@ body {
   margin-bottom: 44px;
 }
 
-section {
+/* section {
   background-attachment: fixed;
-}
+} */
 
 form {
   background: rgba(255,255,255,.1);
@@ -80,7 +80,7 @@ main {
 .mission {
   background-image: url('https://i.imgur.com/dZKKDWS.jpg');
   background-size: cover;
-  height: 100%;
+  height: 100vh;
 }
 
 .formation {
@@ -135,7 +135,7 @@ footer  {
 
 /* statement section */
 .statement {
-  height: 100%;
+  height: 100vh;
   background-image: url('https://i.imgur.com/hAzBkC0.jpg'); 
   background-size: cover;
 }
@@ -156,7 +156,7 @@ footer  {
   color: #a7ffeb;
   font-size: 22px;
   text-align: center;
-  padding-top: 3rem;
+  padding-top: 2rem;
   margin: 0 10%;
   text-shadow:
 		-1px -1px 0 #000,
@@ -354,6 +354,15 @@ input#search.search-bar {
 
 /* 992px width and down */
 @media only screen and (max-width: 480px) {
+
+.statement {
+  height: 80vh;
+}  
+
+.statement-header {
+  padding-top: 10%;
+}
+
 .brand-logo.left {
     left: 7% !important;
     }
