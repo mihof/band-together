@@ -16,7 +16,7 @@
     </div>
   </div>
   <div class="card-action">
-      {% if event.total_tickets > 0 %}
+    {% if event.total_tickets > 0 %}
       <form action="{% url 'ticket' event.id %}" method="POST">
         {% csrf_token %}
         <button type="submit" class="btn">Tickets</button>

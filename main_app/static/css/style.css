@@ -29,14 +29,14 @@ nav {
 }
 
 .nav-icon {
-    font-size: 30px;
-    position: absolute;
-    top: 50%;
-    left: 2%;
-    transform: translateY(-25%);
-    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-             0px 8px 13px rgba(0,0,0,0.1),
-             0px 18px 23px rgba(0,0,0,0.1);
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+  left: 2%;
+  transform: translateY(-25%);
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+            0px 8px 13px rgba(0,0,0,0.1),
+            0px 18px 23px rgba(0,0,0,0.1);
 }
 
 .brand-logo.left {
@@ -46,12 +46,12 @@ nav {
 }
 
 .fa-bars {
-    font-size: 30px;
-    text-shadow: var(--shade);
+  font-size: 30px;
+  text-shadow: var(--shade);
 }
 
 .brand-logo.left {
- left: 5% !important;
+  left: 5% !important;
 }
 
 nav ul a { 
@@ -72,7 +72,6 @@ main {
   flex: 1 0 auto;
   margin: 0 !important;
   width: 100% !important;
-  
 }
 
 .mission {
@@ -87,7 +86,7 @@ main {
 }
 
 .card-content {
-    color: #00695c;
+  color: #00695c;
 }
 
 .formation p label {
@@ -98,15 +97,14 @@ main {
 
 
 /* Footer steez */
-
 footer  {
-    padding-top: 10px !important;
-    padding-bottom: 10px !important; 
-    text-align: center !important;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    text-shadow: var(--shade);
+  padding-top: 10px !important;
+  padding-bottom: 10px !important; 
+  text-align: center !important;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-shadow: var(--shade);
 }
 
 /* Mission Section */
@@ -162,11 +160,11 @@ footer  {
 
 /* Login section */
 .login-header {
-    color: white !important;
-    font-size: 30px !important;
-    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-             0px 8px 13px rgba(0,0,0,0.1),
-             0px 18px 23px rgba(0,0,0,0.1);
+  color: white !important;
+  font-size: 30px !important;
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+            0px 8px 13px rgba(0,0,0,0.1),
+            0px 18px 23px rgba(0,0,0,0.1);
 }
 
 .section-login {
@@ -183,15 +181,14 @@ footer  {
 }
 
 /* cards and builtins */
-
 .input-steez {
-    width: 25%;
-    display: block;
-    border-radius: 10px;
-    text-align: center;
-    margin: 0 auto;
-    background-color: #00695c;
-    box-shadow: 0px 15px 9px -10px #000;
+  width: 25%;
+  display: block;
+  border-radius: 10px;
+  text-align: center;
+  margin: 0 auto;
+  background-color: #00695c;
+  box-shadow: 0px 15px 9px -10px #000;
 }
 
 input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
@@ -206,7 +203,6 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
   width: 30%;
   margin: 15px auto;
   border-radius: 10px;
-  
 }
 
 .card-hov {
@@ -227,7 +223,6 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 /* events listing page */
 .events-listing {
   background-image: url('https://i.imgur.com/0R2TzR9.jpg');
-  /* height: 100vh; */
   background-size: cover;
   text-align: center;
   background-attachment: fixed;
@@ -294,14 +289,14 @@ input#search.search-bar {
 }
 
 .add-events textarea {
-    width: 50%;
-    height: 5rem;
-    background-color: white;
-    text-align: center;
-    display: block;
-    margin: 0 auto;
-    border-radius: 10px;
-    border: none;
+  width: 50%;
+  height: 5rem;
+  background-color: white;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+  border: none;
 }
 
 .add-events .btn {
@@ -408,52 +403,52 @@ input#search.search-bar {
 /* 480px width and down */
 @media only screen and (max-width: 480px) {
 
-.statement {
-  height: 80vh;
-}  
+  .statement {
+    height: 80vh;
+  }  
 
-.statement-header {
-  padding-top: 10%;
-}
+  .statement-header {
+    padding-top: 10%;
+  }
 
-.brand-logo.left {
-    left: 7% !important;
-    }
-.card{
-  width: 70%;
-}
+  .brand-logo.left {
+      left: 7% !important;
+      }
+  .card{
+    width: 70%;
+  }
 
-input#search.search-bar {
-  width: 50%;
-}
+  input#search.search-bar {
+    width: 50%;
+  }
 
-.mission-header {
-  top: 15%;
-}
+  .mission-header {
+    top: 15%;
+  }
 
-/* add events page */
-.add-events input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
-  background:#fff;
-  width: 100%;
-  right: 15px;
-}
+  /* add events page */
+  .add-events input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
+    background:#fff;
+    width: 100%;
+    right: 15px;
+  }
 
-.add-events textarea {
-  width: 100%;
-}
+  .add-events textarea {
+    width: 100%;
+  }
 
-.add-header {
-  color: #a7ffeb;
-  margin: 0;
-  padding-top: 50px;
-  padding-bottom: 25px;
-  font-size: 3em;
-}
+  .add-header {
+    color: #a7ffeb;
+    margin: 0;
+    padding-top: 50px;
+    padding-bottom: 25px;
+    font-size: 3em;
+  }
 
-#map {
-  margin: 0 auto;
-  height: 225px !important;
-  width: 225px !important;
-}
+  #map {
+    margin: 0 auto;
+    height: 225px !important;
+    width: 225px !important;
+  }
 
 }
