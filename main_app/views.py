@@ -95,5 +95,5 @@ def ticket_create(request, event_id):
 
 @login_required
 def profile(request):
-  tickets = Ticket.object.filter(user=request.user)
+  tickets = Ticket.objects.filter(user=request.user)
   return render(request, 'profile.html', { 'tickets': tickets })
