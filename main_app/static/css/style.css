@@ -9,6 +9,10 @@ body {
   background: #000;
 }
 
+/* div:last-child {
+  margin-bottom: 50px;
+} */
+
 /* Nav Section */
 nav {
   box-shadow: 0px 15px 9px -10px #000;
@@ -61,6 +65,8 @@ ul .sidenav {
 /* Main Section */
 main {
   flex: 1 0 auto;
+  margin: 0 !important;
+  width: 100% !important;
 }
 
 .mission {
@@ -89,10 +95,13 @@ main {
 
 /* Footer steez */
 
-.page-footer  {
-    padding-top: 15px !important;
-    padding-bottom: 15px !important; 
+footer  {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important; 
     text-align: center !important;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
              0px 8px 13px rgba(0,0,0,0.1),
              0px 18px 23px rgba(0,0,0,0.1);
