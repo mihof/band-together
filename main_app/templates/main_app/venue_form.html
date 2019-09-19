@@ -7,20 +7,17 @@
   {% else %}
     <h1 class="events-header">Add Venue</h1>
   {% endif %}
-  <!-- Leaving the action empty makes the form post to the same url used to display it -->
   <form action="" method="post" class="formation-add">
     {% csrf_token %}
     <table>
-      <!-- Render the inputs inside of <tr>s & <td>s -->
       {{ form.as_p }}
     </table>
     <input type="submit" value="Submit!" class="btn">
   </form>
 </section>
 
-  <script>
-    // initialize the meal select
-    var selectEl = document.getElementById('id_accessibility');
-    M.FormSelect.init(selectEl);
-  </script>
+<script>
+  var selectEl = document.getElementById('id_accessibility');
+  M.FormSelect.init(selectEl);
+</script>
 {% endblock %}
