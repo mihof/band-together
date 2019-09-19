@@ -2,11 +2,11 @@
 {% block content %}
 
 <section class="ticket-list">
-<h1 class="events-header">{{ user }} Tickets</h1>
+<h1 class="events-header">{{ user }}'s Tickets</h1>
 {% if tickets|length > 0 %}
   {% for ticket in tickets %}
     <div class="card">
-      <div class="card-content">
+      <div class="card-content ticket-list-item">
         <span class="card-title">{{ ticket.event.artists }}</span>
         <p>Venue: {{ ticket.event.venue.name }}</p>
         <p>Date: {{ ticket.event.date }}</p>
@@ -15,9 +15,9 @@
     </div>
   {% endfor %}
 {% else %}
-  <div class="card">
+  <div class="card ticket-list-item">
     <div class="card-content">
-      <h3 class="center">No Tickets Yet</h3>
+      <h3 class="center ticket-display">No Tickets Yet</h3>
     </div>
   </div>
 {% endif %}
