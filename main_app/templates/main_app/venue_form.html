@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="add-events">
+  {% if object %}
+    <h1 class="events-header">Edit {{object.name}}</h1>
+  {% else %}
+    <h1 class="events-header">Add Venue</h1>
+  {% endif %}
+  <form action="" method="post" class="formation-add">
+    {% csrf_token %}
+    <table>
+      {{ form.as_p }}
+    </table>
+    <input type="submit" value="Submit!" class="btn">
+  </form>
+</section>
+
+<script>
+  var selectEl = document.getElementById('id_accessibility');
+  M.FormSelect.init(selectEl);
+</script>
+{% endblock %}

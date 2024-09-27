@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="venue-list">
+<h1 class="events-header">All Venues</h1>
+<input class="search-bar" id="search" type="text" name="query" onkeyup=search(event) placeholder="Search by Name"></input>
+
+{% for venue in venue_list %}
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">{{ venue.name }}</span>
+      <p>Capcity: {{ venue.capacity }}</p>
+      <p>Accessibility: {{ venue.accessibility }}</p>
+    </div>
+    <div class="card-action">
+      <a href="{% url 'venue_update' venue.id %}">Edit</a>
+      <a href="{% url 'venue_delete' venue.id %}">Delete</a>
+    </div>
+  </div>
+{% endfor %}
+</section>
+<script defer>
+  function search(event){
+    let input = document.getElementById('search').value;
+    let query = input.toString().toLowerCase().trim();
+    document.querySelectorAll('.card').forEach(node => {
+      if(node.firstElementChild.firstElementChild.textContent.toLowerCase().includes(query)){
+        node.style.display = 'block';
+      } else {
+        node.style.display = 'none';
+      }
+    });
+  }
+</script>
+{% endblock %}

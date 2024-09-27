@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="add-events">
+  {% if object %}
+    <h1 class="events-header">Edit <span class="teal-text">{{object.name}}</span></h1>
+  {% else %}
+    <h1 class="events-header">Add Event</h1>
+  {% endif %}
+  <form action="" method="post" class="formation-add">
+    {% csrf_token %}
+    <table>
+      {{ form.as_p }}
+    </table>
+    <input type="submit" value="Submit!" class="btn">
+  </form>
+</section>
+<script>
+  var dateEl = document.getElementById('id_date');
+  M.Datepicker.init(dateEl, {
+    format: 'yyyy-mm-dd',
+    defaultDate: new Date(),
+    setDefaultDate: true,
+    autoClose: true
+  });
+
+  var selectEl = document.getElementById('id_venue');
+  M.FormSelect.init(selectEl);
+</script>
+{% endblock %}
